@@ -1,25 +1,26 @@
 package com.and1ss;
 
 import Jama.Matrix;
-import com.sun.jdi.InvalidTypeException;
 
 import java.util.Scanner;
 
 public class Main {
 
+    // data for XOR logic gate
     private static final double[][][] learningData = {
-            { {0, 0}, {0} },
-            { {0, 1}, {1} },
-            { {1, 0}, {1} },
-            { {1, 1}, {0} }
+            { {0, 0}, {0, 0} },
+            { {0, 1}, {1, 1} },
+            { {1, 0}, {1, 1} },
+            { {1, 1}, {0, 0} }
     };
 
     private static NeuralNetwork net;
     public static void main(String[] args) {
-        net = new NeuralNetwork(new int[] {2, 3, 1});
+        net = new NeuralNetwork(new int[] {2, 10, 10, 2});
 
-        net.learn(learningData, 100000, 1, 10);
-
+        net.learn(learningData, 100000, 1, 4);
+        net.toFile("test.net");
+        //net = NeuralNetwork.fromFile("test.net");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
