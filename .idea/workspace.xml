@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566185145836</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added saving net state to file / creating net from saved state">
+      <created>1566679184174</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566679184174</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -106,20 +113,23 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="simple feedforward neural network" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple feedforward neural network" />
+    <MESSAGE value="added saving net state to file / creating net from saved state" />
+    <option name="LAST_COMMIT_MESSAGE" value="added saving net state to file / creating net from saved state" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/and1ss/NeuralNetwork.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((double[][])((Matrix[])((NeuralNetwork)this).weights)[0].A)[2]" custom="com.and1ss.NeuralNetwork,double[][],Jama.Matrix[]" />

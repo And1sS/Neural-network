@@ -65,7 +65,7 @@ public class NeuralNetwork {
             inputMatrix = sigmoid(weights[i].times(inputMatrix).plus(biases[i]));
             outputs[i + 1] = inputMatrix;
         }
-        inputMatrix = sigmoid(weights[layers - 2].times(inputMatrix)
+        inputMatrix = softmax(weights[layers - 2].times(inputMatrix)
                 .plus(biases[layers - 2]));
         outputs[layers - 1] = inputMatrix;
     }
@@ -73,13 +73,13 @@ public class NeuralNetwork {
     public void backPropagation(Matrix desiredOutputs) {
         Matrix errors = outputs[layers - 1].minus(desiredOutputs);
 
-//        errors = softmaxDerivative(outputs[layers - 1]).times(errors); // last layer inputs error
-//        weightsErrors[layers - 2].plusEquals(errors.
-//                times(outputs[layers - 2].transpose())); // weights error
-//        biasesErrors[layers - 2].plusEquals(errors); // biases error
-//        errors = weights[layers - 2].transpose().times(errors); // outputs error
+        errors = softmaxDerivative(outputs[layers - 1]).times(errors); // last layer inputs error
+        weightsErrors[layers - 2].plusEquals(errors.
+                times(outputs[layers - 2].transpose())); // weights error
+        biasesErrors[layers - 2].plusEquals(errors); // biases error
+        errors = weights[layers - 2].transpose().times(errors); // outputs error
 
-        for(int i = layers - 1; i > 0; i--) {
+        for(int i = layers - 2; i > 0; i--) {
             errors.arrayTimesEquals(sigmoidDerivative(outputs[i])); //inputs error
             weightsErrors[i - 1].plusEquals(errors.times(outputs[i - 1].transpose())); // weights error
             biasesErrors[i - 1].plusEquals(errors); // biases error
